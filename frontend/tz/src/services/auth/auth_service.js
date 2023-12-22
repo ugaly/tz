@@ -25,22 +25,23 @@ export default class AuthService{
     }
 
     static searchPlace(location){
-        return API.ax.get(`places/${location}/`).catch(e=>console.log(e))}
+        return API.ax.get(`places/${location}/`).catch(e=>console.log(e))
+    }
 
     static loadPost(){
         return API.ax.get('posts').catch(e=>console.log(e))
     }
 
     static loadNextPage(page) {
-        return API.ax.get("http://192.168.100.55:8005/tz/posts?page=2").catch((e) => console.log(e));
+        return API.ax.get("http://192.168.100.55:8000/tz/posts?page=2").catch((e) => console.log(e));
       }
 
     static loadPostByLocation(location){
         return API.ax.get(`posts/${location}`).catch(e=>console.log(e))
     }
 
-    static loadRecommended(){
-        return API.ax.get(`recommended`).catch(e=>console.log(e))
+    static loadRecommended(page){
+        return API.ax.get(`recommended?page=${page}`).catch(e=>console.log(e))
     }
    
 
